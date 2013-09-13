@@ -10,6 +10,7 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
+    # @image = @place.images.new
     @image = @place.images.new
   end
 
