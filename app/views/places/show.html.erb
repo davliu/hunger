@@ -1,16 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
+<%= render 'form' %>
 
-<p>
-  <strong>Yelp url:</strong>
-  <%= @place.yelp_url %>
-</p>
+<h2>Images</h2>
+<table class='table table-bordered'>
+  <thead>
+    <tr>
+      <th>Image URL</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @place.images.each do |image| %>
+      <% if image.id %>
+        <tr>
+          <td><%= image.image_url %></td>
+          <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
 
 <%= render 'images/form' %>
-
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
