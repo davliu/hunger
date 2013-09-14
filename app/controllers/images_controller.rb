@@ -23,6 +23,10 @@ class ImagesController < ApplicationController
     end
   end
 
+  def random
+    @image = Image.offset(rand(Image.count)).first
+  end
+
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy

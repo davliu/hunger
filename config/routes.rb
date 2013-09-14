@@ -1,4 +1,5 @@
 Hunger::Application.routes.draw do
+  get '/images/random', to: 'images#random'
   resources :images
 
   resources :places
